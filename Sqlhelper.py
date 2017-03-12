@@ -1,7 +1,9 @@
 from sqlalchemy import Column, Integer, String, DateTime, Numeric, create_engine, VARCHAR
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 BaseModel = declarative_base()
 
 class VideoData(BaseModel):

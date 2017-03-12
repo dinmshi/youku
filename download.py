@@ -3,7 +3,9 @@ import re
 import random
 import time
 from proxy import proxyX
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 class DownLoad:
     user_agent_list = []

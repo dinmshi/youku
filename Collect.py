@@ -1,7 +1,9 @@
 from bs4 import BeautifulSoup
 from download import request
 from Sqlhelper import EpisodeData
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 class Collect:
 
     def getCollects(self, nodsUrl):

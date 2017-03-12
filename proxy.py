@@ -9,7 +9,7 @@ class Proxy:
         self.ipList = []
         self.ipPortList = {}
         ipListJson = requests.get("http://127.0.0.1:8000/")
-        print(ipListJson)
+        print(ipListJson.text)
         ipList = json.loads(ipListJson.text)
         for ip in ipList:
             self.ipList.append(ip[0])

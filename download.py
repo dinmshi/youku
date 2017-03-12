@@ -39,10 +39,7 @@ class DownLoad:
             self.get(url, timeout, self.getProxy())
 
     def getProxy(self):
-        if self.proxy == None:
-            self.proxy = proxyX
-
-        print(self.proxy)
-        return self.proxy
+        print(proxyX.getProxy())
+        return proxyX.getProxy()
 
 request = DownLoad()

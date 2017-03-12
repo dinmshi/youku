@@ -16,8 +16,7 @@ class Collect:
                 url = httpStr + url
             suNum = a.span.string
             p[url] = EpisodeData(number=suNum, video_url=url, video_id=nodsUrl)
-            print(a["href"])
-            print(a.span)
+
 
         nums = p.__len__()
         print("总共 : " + str(nums) + "集")

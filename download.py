@@ -7,7 +7,7 @@ from proxy import proxyX
 
 class DownLoad:
     user_agent_list = []
-    proxy = proxyX
+    proxy = None
 
     def __init__(self):
         # 导入数据集并随机获取一个User-Agent
@@ -23,26 +23,26 @@ class DownLoad:
         }
 
         try:
-            response = requests.get(url, headers=headers, proxies=self.getProxy(True))
+            response = requests.get(url, headers=headers, proxies=self.getProxy())
             if response.status_code != 200:
                 print("response.status_code : " + response.status_code)
-                self.get(url, timeout, self.getProxy(self, True), 6)
+                self.get(url, timeout, self.getProxy())
             if response.text == None:
                 print("response.text == None")
-                self.get(url, timeout, self.getProxy(True), 6)
+                self.get(url, timeout, self.getProxy())
             print(response)
             return response
         except Exception as e:
             print(Exception)
             print(e)
             time.sleep(5)
-            self.get(url, timeout, self.getProxy(True), num_retries - 1)
+            self.get(url, timeout, self.getProxy())
 
-    def getProxy(self, cache):
-        if cache:
-            return self.proxy
-        else:
-            self.proxy = self.getProxy(True)
-            return self.proxy
+    def getProxy(self):
+        if self.proxy == None:
+            self.proxy = proxyX
+
+        print(self.proxy)
+        return self.proxy
 
 request = DownLoad()

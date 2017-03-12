@@ -6,9 +6,10 @@ class Proxy:
     ipList = []
     ipPortList = {}
     def __init__(self):
-        self.ipList = []  ##初始化一个list用来存放我们获取到的IP
-        self.ipPortList = {}  ##初始化一个list用来存放我们获取到的IPport
-        ipListJson = requests.get("http://127.0.0.1:8000/")  ##不解释咯
+        self.ipList = []
+        self.ipPortList = {}
+        ipListJson = requests.get("http://127.0.0.1:8000/")
+        print(ipListJson)
         ipList = json.loads(ipListJson.text)
         for ip in ipList:
             self.ipList.append(ip[0])

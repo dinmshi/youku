@@ -1,9 +1,7 @@
 from Nodes import nodes
 from Collect import collect
 from Sqlhelper import sqlhelper
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+
 
 
 targetUrl = 'http://list.youku.com/category/show/c_97_a_%E9%9F%A9%E5%9B%BD_s_1_d_1_p_1.html?spm=a2h1n.8251845.0.0'

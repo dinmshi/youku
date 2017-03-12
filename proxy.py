@@ -1,9 +1,7 @@
 import requests
 import random
 import json
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+
 class Proxy:
     ipList = []
     ipPortList = {}

@@ -25,4 +25,4 @@ class Proxy:
         print(proxies)
         return proxies
 
-proxy = Proxy()
+proxyX = Proxy()

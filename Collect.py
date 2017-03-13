@@ -20,7 +20,7 @@ class Collect:
 
 
         nums = p.__len__()
-        print("总共 : " + str(nums) + "集")
+        # print("总共 : " + str(nums) + "集")
         return p
 
 collect = Collect()

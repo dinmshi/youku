@@ -8,7 +8,7 @@ targetUrl = 'http://list.youku.com/category/show/c_97_a_%E9%9F%A9%E5%9B%BD_s_1_d
 
 allNodes = nodes.getNodes(targetUrl)
 nums = allNodes.__len__()
-print("总共 : " + str(nums) + "个剧")
+# print("总共 : " + str(nums) + "个剧")
 for nodeKey in allNodes.keys() :
     videoInfo = allNodes.get(nodeKey)
     sqlhelper.insertVideo(videoInfo)

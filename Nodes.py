@@ -33,17 +33,16 @@ class Nodes:
 
         nextPageLi = solp.find("li", class_="next")
 
-        b = nextPageLi.a != None
-
         if nextPageLi.a != None:
             nextPageUrl = httpStr + nextPageLi.a["href"]
 
+            print("get nextPageUrl")
             p1 = self.getNodes(nextPageUrl)
-
+            print("update p")
             p.update(p1)
             return p
         else:
-
+            print("return p")
             return p
 
 

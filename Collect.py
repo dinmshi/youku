@@ -15,6 +15,7 @@ class Collect:
             if (url.find(httpStr) == -1):
                 url = httpStr + url
             suNum = a.span.string
+            print("getCollects")
             p[url] = EpisodeData(number=suNum, video_url=url, video_id=nodsUrl)
 
 

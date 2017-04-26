@@ -3,6 +3,8 @@ import string
 from bs4 import BeautifulSoup
 from download import request
 from Sqlhelper import VideoData
+from Sqlhelper import sqlhelper
+from Collect import collect
 
 class Nodes:
 
@@ -16,6 +18,8 @@ class Nodes:
             return None
 
         startHtml = request.get(startUrl, 3)
+        if startHtml == None :
+            return
         solp = BeautifulSoup(startHtml.text, 'lxml')
 
         attrs = {"class": "yk-col4 mr1"}
@@ -30,6 +34,8 @@ class Nodes:
             img = li.div.div.img["src"]
             # print("getNodes url :" + url)
             p[url] = VideoData(id=url, title=title, img_url=img, types='types')
+            sqlhelper.insertVideo(p[url])
+            collect.getCollects(url)
 
         nextPageLi = solp.find("li", class_="next")
 
@@ -39,7 +45,8 @@ class Nodes:
             # print("get nextPageUrl")
             p1 = self.getNodes(nextPageUrl)
             # print("update p")
-            p.update(p1)
+            if p1 != None :
+                p.update(p1)
             return p
         else:
             print("return p")

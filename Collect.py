@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from download import request
 from Sqlhelper import EpisodeData
+from Sqlhelper import sqlhelper
 
 class Collect:
 
@@ -15,9 +16,8 @@ class Collect:
             if (url.find(httpStr) == -1):
                 url = httpStr + url
             suNum = a.span.string
-            print("getCollects")
             p[url] = EpisodeData(number=suNum, video_url=url, video_id=nodsUrl)
-
+            sqlhelper.insertEpisode(p[url])
 
         nums = p.__len__()
         # print("总共 : " + str(nums) + "集")

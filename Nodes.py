@@ -28,7 +28,7 @@ class Nodes:
                 url = httpStr + url
             title = li.div.div.a["title"]
             img = li.div.div.img["src"]
-            print("getNodes url :" + url)
+            # print("getNodes url :" + url)
             p[url] = VideoData(id=url, title=title, img_url=img, types='types')
 
         nextPageLi = solp.find("li", class_="next")
@@ -36,9 +36,9 @@ class Nodes:
         if nextPageLi.a != None:
             nextPageUrl = httpStr + nextPageLi.a["href"]
 
-            print("get nextPageUrl")
+            # print("get nextPageUrl")
             p1 = self.getNodes(nextPageUrl)
-            print("update p")
+            # print("update p")
             p.update(p1)
             return p
         else:

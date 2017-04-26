@@ -44,11 +44,13 @@ class SqlHelper():
         proxy = VideoData(id=value['id'], title=value['title'], img_url=value['img_url'], types=value['types'])
         self.session.add(proxy)
         self.session.commit()
+        print("insertVideo")
 
     def insertEpisode(self, value):
         proxy = EpisodeData(number=value['number'], video_url=value['video_url'], video_id=value['video_id'])
         self.session.add(proxy)
         self.session.commit()
+        print("insertEpisode")
     #
     # def delete(self, conditions=None):
     #     if conditions:

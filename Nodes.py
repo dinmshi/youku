@@ -33,8 +33,8 @@ class Nodes:
             title = li.div.div.a["title"]
             img = li.div.div.img["src"]
             # print("getNodes url :" + url)
-            video = VideoData(id=url, title=title, img_url=img, types='types')
-            sqlhelper.insertVideo(video)
+            p[url] = VideoData(id=url, title=title, img_url=img, types='types')
+            sqlhelper.insertVideo(p[url])
             collect.getCollects(url)
 
         nextPageLi = solp.find("li", class_="next")
@@ -43,11 +43,16 @@ class Nodes:
             nextPageUrl = httpStr + nextPageLi.a["href"]
 
             # print("get nextPageUrl")
+            p1 = self.getNodes(nextPageUrl)
             # print("update p")
-            # if p1 != None :
-            #     p.update(p1)
-            return self.getNodes(nextPageUrl)
+            if p1 != None :
+                p.update(p1)
+            return p
         else:
-            return
+            print("return p")
+            return p
+
+
+        return p
 
 nodes = Nodes()

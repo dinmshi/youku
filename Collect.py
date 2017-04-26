@@ -7,6 +7,8 @@ class Collect:
 
     def getCollects(self, nodsUrl):
         start_html = request.get(nodsUrl, 3)
+        if start_html == None:
+            return
         Soup = BeautifulSoup(start_html.text, 'lxml')
         herfs = Soup.find_all("a", "sn")
         p = {}
